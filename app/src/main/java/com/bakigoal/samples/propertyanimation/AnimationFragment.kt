@@ -26,11 +26,16 @@ class AnimationFragment : Fragment() {
     fun rotate() {
         val animator = ObjectAnimator.ofFloat(binding.star, View.ROTATION, -360f, 0f)
         animator.duration = DateUtils.SECOND_IN_MILLIS
-        animator.addListener(ButtonDisableListener(binding.rotateButton))
+        animator.disableViewDuringAnimation(binding.rotateButton)
         animator.start()
     }
 
     fun translate() {
+        val animator = ObjectAnimator.ofFloat(binding.star, View.TRANSLATION_X, 200f)
+        animator.repeatCount = 1
+        animator.repeatMode = ObjectAnimator.REVERSE
+        animator.disableViewDuringAnimation(binding.translateButton)
+        animator.start()
     }
 
     fun scale() {
