@@ -2,6 +2,8 @@ package com.bakigoal.samples.propertyanimation
 
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
+import android.graphics.Color.BLACK
+import android.graphics.Color.RED
 import android.os.Bundle
 import android.text.format.DateUtils
 import android.view.LayoutInflater
@@ -11,6 +13,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.google.samples.propertyanimation.R
 import com.google.samples.propertyanimation.databinding.FragmentAnimationBinding
+
+const val BACKGROUND_COLOR = "backgroundColor"
 
 class AnimationFragment : Fragment() {
 
@@ -59,6 +63,12 @@ class AnimationFragment : Fragment() {
     }
 
     fun colorize() {
+        val animator = ObjectAnimator.ofArgb(binding.star.parent, BACKGROUND_COLOR, BLACK, RED)
+        animator.repeatCount = 1
+        animator.repeatMode = ObjectAnimator.REVERSE
+        animator.disableViewDuringAnimation(binding.colorizeButton)
+        animator.duration = DateUtils.SECOND_IN_MILLIS / 2
+        animator.start()
     }
 
     fun shower() {
