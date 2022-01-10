@@ -1,9 +1,9 @@
 package com.bakigoal.samples.propertyanimation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.samples.propertyanimation.R
 
 
