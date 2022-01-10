@@ -50,6 +50,12 @@ class AnimationFragment : Fragment() {
     }
 
     fun fade() {
+        val animator = ObjectAnimator.ofFloat(binding.star, View.ALPHA, 0f)
+        animator.repeatCount = 1
+        animator.repeatMode = ObjectAnimator.REVERSE
+        animator.disableViewDuringAnimation(binding.fadeButton)
+        animator.duration = DateUtils.SECOND_IN_MILLIS
+        animator.start()
     }
 
     fun colorize() {
